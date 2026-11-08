@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>半導體工程實驗筆記網</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --text-color: #E0E0E0;
+            --accent-color: #00E5FF;
+            --warning-bg: #ffebee;
+            --warning-text: #d32f2f;
+            --card-bg: #1e1e1e;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #000;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        header h1 {
+            margin: 0;
+            color: var(--accent-color);
+            letter-spacing: 2px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .meta-info {
+            color: #888;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+        }
+        h2 {
+            border-left: 4px solid var(--accent-color);
+            padding-left: 10px;
+            margin-top: 30px;
+        }
+        .instrument-list {
+            background-color: var(--card-bg);
+            padding: 15px 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        .instrument-list ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .warning-box {
+            background-color: var(--warning-bg);
+            color: var(--warning-text);
+            padding: 15px;
+            border-left: 5px solid var(--warning-text);
+            border-radius: 3px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            border: 1px solid #444;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #333;
+            color: var(--accent-color);
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            border-top: 1px solid #333;
+            color: #666;
+            font-size: 0.8em;
+        }
+        code {
+            font-family: Consolas, monospace;
+            background-color: #333;
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: #00FF66;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>半導體工程實驗筆記</h1>
+    </header>
+
+    <div class="container">
+        <article>
+            <h1>電晶體腳位判別與電阻量測紀錄</h1>
+            <div class="meta-info">實驗日期：2026-11-05 | 紀錄者：C114186126</div>
+
+            <h2>使用儀器</h2>
+            <div class="instrument-list">
+                <ul>
+                    <li>Pro'sKit MT-1220 數位萬用電表</li>
+                    <li>C1384 電晶體 (NPN)</li>
+                    <li>1kΩ 碳膜電阻 (棕黑紅金)</li>
+                    <li>麵包板與跳線</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                ⚠️ 安全警告：使用數位電表量測電阻時，嚴禁在電路通電狀態下進行測量，以免燒毀電表內部保險絲。
+            </div>
+
+            <h2>實驗步驟與數據</h2>
+            <p>本次實驗主要使用萬用電表的「二極體測試檔位」來尋找電晶體的基極 (Base)，並確認其為 PNP 或 NPN 結構。經測試 C1384 型號確認為 NPN 型，腳位排列為 E-C-B。</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>測試元件</th>
+                        <th>測量項目</th>
+                        <th>測量結果 / 讀值</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1kΩ 電阻</td>
+                        <td>電阻檔位測試</td>
+                        <td>0.98 kΩ (在 5% 誤差範圍內)</td>
+                    </tr>
+                    <tr>
+                        <td>C1384</td>
+                        <td>B-E 順向偏壓</td>
+                        <td>導通 (約 0.65V)</td>
+                    </tr>
+                    <tr>
+                        <td>C1384</td>
+                        <td>B-C 順向偏壓</td>
+                        <td>導通 (約 0.64V)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>除錯與結論</h2>
+            <p>初期在量測 RL 電路時，示波器 CH1 的接地端與 CH2 接地端位置接反，導致波形失真。重新確認示波器探棒的共地原則後，已順利觀察到正確的充放電波形。透過建立這套標準化筆記流程，未來的實驗數據都能有效建檔。</p>
+        </article>
+    </div>
+
+    <footer>
+        &copy; 2026 實驗知識庫 - Built via Agentic Rules
+    </footer>
+
+</body>
+</html>
